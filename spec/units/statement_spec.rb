@@ -20,9 +20,9 @@ RSpec.describe Statement do
     expect(@statement.print_statement).to eq("date || credit || debit || balance\n12/01/2010 || 1000.00 || || 1000.00")
   end
 
-  it 'can two print statement' do
+  it 'can two print two transactions in reverse' do
     @statement.store_transaction(@transaction1)
     @statement.store_transaction(@transaction2)
-    expect(@statement.print_statement).to eq("date || credit || debit || balance\n12/01/2010 || 1000.00 || || 1000.00\n13/01/2010 || || 300.00 || 700.00")
+    expect(@statement.print_statement).to eq("date || credit || debit || balance\n13/01/2010 || || 300.00 || 700.00\n12/01/2010 || 1000.00 || || 1000.00")
   end
 end

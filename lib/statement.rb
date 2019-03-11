@@ -14,7 +14,7 @@ class Statement
 
   def print_statement
     statement = "date || credit || debit || balance"
-    @transactions.each do |transaction| 
+    @transactions.reverse_each do |transaction| 
       statement += "\n" + formatted_date(transaction.date)
       if transaction.type == :deposit
         statement += " || " + '%.2f' % transaction.amount + " ||"
