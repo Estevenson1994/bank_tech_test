@@ -19,4 +19,10 @@ RSpec.describe Statement do
     @statement.store_transaction(@transaction1)
     expect(@statement.print_statement).to eq("date || credit || debit || balance\n12/01/2010 || 1000.00 || || 1000.00")
   end
+
+  it 'can two print statement' do
+    @statement.store_transaction(@transaction1)
+    @statement.store_transaction(@transaction2)
+    expect(@statement.print_statement).to eq("date || credit || debit || balance\n12/01/2010 || 1000.00 || || 1000.00\n13/01/2010 || || 300.00 || 700.00")
+  end
 end

@@ -19,7 +19,7 @@ class Statement
       if transaction.type == :deposit
         statement += " || " + '%.2f' % transaction.amount + " ||"
       else
-        statement += " || || " + '%.2f' % transaction.amount + " || "
+        statement += " || || " + '%.2f' % transaction.amount
       end
       statement += " || " + '%.2f' % transaction.balance
     end
