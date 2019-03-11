@@ -23,7 +23,8 @@ RSpec.describe Statement do
 
   it 'withdrawals are stored in transactions' do
     statement.withdraw(1000)
-    expect(statement.transactions).to include({ withdraw: 1000, balance: -1000 })
+    expect(statement.transactions[0][:withdraw]).to eq(1000)
+    expect(statement.transactions[0][:balance]).to eq(-1000)
   end
 
   it 'stores the date when a deposit is made' do
@@ -31,5 +32,9 @@ RSpec.describe Statement do
     expect(statement.transactions).to include({ date: "14/01/12", deposit: 1000, balance: 1000 })
   end
 
+  it 'stores the date when a withdrawal is made' do
+    statement.withdraw(1000, "13-01-2012")
+    expect(statement.transactions).to include({ date: "13/01/12", withdraw: 1000, balance: -1000 })
+  end
   
 end
