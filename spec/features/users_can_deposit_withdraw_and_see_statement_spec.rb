@@ -3,7 +3,7 @@ require 'statement'
 RSpec.describe Statement do
   subject(:statement) { described_class.new }
 
-  it 'users can deposit, withdraw and see their statement' do
+  xit 'users can deposit, withdraw and see their statement' do
     statement.deposit(1000, '10-01-2012')
     statement.deposit(2000, '13-01-2012')
     statement.withdraw(500, '14-01-2012')
