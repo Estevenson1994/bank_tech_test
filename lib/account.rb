@@ -1,5 +1,5 @@
 class Account
-  attr_reader :balance, :transactions
+  attr_reader :balance, :transactions, :statement
 
   def initialize(statement = Statement.new)
     @statement = statement

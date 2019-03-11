@@ -19,5 +19,4 @@ RSpec.describe Account do
     expect { @account.withdraw(500) }.to change { @account.balance }.by(-500)
   end
 
-
 end
