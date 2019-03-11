@@ -7,12 +7,12 @@ class Account
   end
 
   def deposit(amount, transaction = Transaction, date = Date.today)
-    @statement.transactions << transaction.new("deposit", amount, date)
+    @statement.transactions << transaction.new(:deposit, amount, date)
     @balance += amount
   end
 
   def withdraw(amount, transaction = Transaction, date = Date.today)
-    @statement.transactions << transaction.new("withdrawal", amount, date)
+    @statement.transactions << transaction.new(:withdrawal, amount, date)
     @balance -= amount
   end
 
