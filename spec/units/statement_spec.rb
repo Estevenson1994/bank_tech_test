@@ -8,6 +8,10 @@ RSpec.describe Statement do
     end
 
     it 'user can make a deposit' do
-        expect { statement.deposit(1000) }.to change {statement.balance}.by(1000)
+        expect { statement.deposit(1000) }.to change { statement.balance }.by(1000)
+    end
+
+    it 'user can make a withdrawal' do
+        expect {statement.withdraw(500) }.to change { statement.balance }.by(-500)
     end
 end
