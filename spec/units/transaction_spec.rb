@@ -3,7 +3,7 @@ require 'transaction'
 RSpec.describe Transaction do
 
   before(:each) do
-    @transaction = Transaction.new("deposit", 1000, "12/01/2010")
+    @transaction = Transaction.new("deposit", 1000, "12/01/2010", 1000)
   end
 
   it 'stores transaction type' do
@@ -16,5 +16,9 @@ RSpec.describe Transaction do
 
   it 'stores the date' do
     expect(@transaction.date).to eq("12/01/2010")
+  end
+
+  it 'stores current balance' do
+    expect(@transaction.balance).to eq(1000)
   end
 end
