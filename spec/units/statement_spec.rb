@@ -27,10 +27,12 @@ RSpec.describe Statement do
     it 'stores date when a deposit is made' do
         @statement.deposit(1000, "14-01-2012")
         expect(@statement.transactions[0][:date]).to eq("14/01/12")
+        expect(@statement.transactions[0][:deposit]).to eq(1000)
     end
 
     it 'stores date when a withrawal is made' do
         @statement.withdraw(1000, "13-01-2012")
         expect(@statement.transactions[0][:date]).to eq("13/01/12")
+        expect(@statement.transactions[0][:withdraw]).to eq(1000)
     end
 end
