@@ -6,12 +6,18 @@ class Statement
     @transactions = []
   end
 
-  def deposit(amount)
+  def deposit(amount, date = Date.today)
     @balance += amount
-    @transactions << { deposit: amount, balance: @balance }
+    if date.is_a? String
+      formatted_date = Date.parse(date).strftime("%d/%m/%y")
+    else 
+      formatted_date = date.strftime("%d/%m/%y")
+    end
+    @transactions << { date: formatted_date, deposit: amount, balance: @balance }
   end
 
   def withdraw(amount)
     @balance -= amount
+    @transactions << { withdraw: amount, balance: @balance }
   end
 end
