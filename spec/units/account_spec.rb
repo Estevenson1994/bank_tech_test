@@ -15,26 +15,4 @@ RSpec.describe Account do
     expect { account.withdraw(500) }.to change { account.balance }.by(-500)
   end
 
-  xit 'deposits are stored in transactions' do
-    account.deposit(1000)
-    expect(account.transactions[0][:deposit]).to eq(1000)
-    expect(account.transactions[0][:balance]).to eq(1000)
-  end
-
-  xit 'withdrawals are stored in transactions' do
-    account.withdraw(1000)
-    expect(account.transactions[0][:withdraw]).to eq(1000)
-    expect(account.transactions[0][:balance]).to eq(-1000)
-  end
-
-  xit 'stores the date when a deposit is made' do
-    account.deposit(1000, "14-01-2012")
-    expect(account.transactions).to include({ date: "14/01/12", deposit: 1000, balance: 1000 })
-  end
-
-  xit 'stores the date when a withdrawal is made' do
-    account.withdraw(1000, "13-01-2012")
-    expect(account.transactions).to include({ date: "13/01/12", withdraw: 1000, balance: -1000 })
-  end
-  
 end
