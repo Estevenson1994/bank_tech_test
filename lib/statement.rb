@@ -2,7 +2,7 @@ require 'date'
 
 class Statement
 
-    attr_reader :transactions
+  attr_reader :transactions
 
   def initialize(account)
     @transactions = []
