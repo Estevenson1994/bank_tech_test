@@ -3,6 +3,7 @@ require 'account'
 RSpec.describe Account do
   before(:each) do
     statement = instance_double('statement', :transactions => [])
+    allow(statement).to receive(:store_transaction)
 
     @account = Account.new(statement)
   end

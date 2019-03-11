@@ -8,6 +8,11 @@ class Statement
     @transactions = []
   end
 
+
+  def store_transaction(transaction)
+    @transactions << transaction
+  end
+
   private
 
   def formatted_date(date)
