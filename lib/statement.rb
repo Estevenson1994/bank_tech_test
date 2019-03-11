@@ -3,10 +3,12 @@ class Statement
 
   def initialize
     @balance = 0
+    @transactions = []
   end
 
   def deposit(amount)
     @balance += amount
+    @transactions << { deposit: amount, balance: @balance }
   end
 
   def withdraw(amount)

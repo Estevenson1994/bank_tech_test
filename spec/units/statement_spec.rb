@@ -17,7 +17,6 @@ RSpec.describe Statement do
 
   it 'deposits are stored in transactions' do
     statement.deposit(1000)
-    expect(statement.transactions).to include({deposit: 1000, balance: 1000})
+    expect(statement.transactions).to include({ deposit: 1000, balance: 1000 })
   end
-
 end
