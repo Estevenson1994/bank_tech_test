@@ -23,5 +23,10 @@ RSpec.describe Statement do
         expect { @statement.withdraw(1000) }.to change { @statement.transactions.length }.by(1)
         expect(@statement.transactions[0][:withdraw]).to eq(1000)
     end
+
+    it 'stores date when a deposit is made' do
+        @statement.deposit(1000, "14-01-2012")
+        expect(@statement.transactions[0][:date]).to eq("14/01/12")
+    end
     
 end
