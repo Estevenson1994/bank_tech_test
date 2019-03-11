@@ -3,7 +3,6 @@ class Account
 
   def initialize
     @balance = 0
-    @transactions = []
   end
 
   def deposit(amount)
