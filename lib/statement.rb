@@ -18,7 +18,7 @@ class Statement
     @transactions.reverse_each do |transaction| 
       add_date(transaction)
       add_transaction_amount(transaction)
-      @statement += "|| " + '%.2f' % transaction.balance
+      add_balance(transaction)
     end
     @statement
   end
@@ -30,7 +30,11 @@ class Statement
   end
 
   def add_transaction_amount(transaction)
-      @statement += " || " + format_amount(transaction.deposit) + "|| " + format_amount(transaction.withdrawal)
+    @statement += " || " + format_amount(transaction.deposit) + "|| " + format_amount(transaction.withdrawal)
+  end
+
+  def add_balance(transaction)
+    @statement += "|| " + '%.2f' % transaction.balance
   end
 
   def format_amount(amount)
