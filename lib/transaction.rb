@@ -2,11 +2,11 @@ require 'date'
 
 class Transaction
 
-  attr_reader :type, :amount, :date, :balance
+  attr_reader :deposit, :withdrawal, :date, :balance
 
-  def initialize(type, amount, date = Date.today, balance)
-    @type = type
-    @amount = amount
+  def initialize(deposit, withdrawal, date = Date.today, balance)
+    @deposit = deposit
+    @withdrawal = withdrawal
     @date = date
     @balance = balance
   end
