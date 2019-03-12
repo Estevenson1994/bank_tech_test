@@ -6,7 +6,7 @@ RSpec.describe Transaction do
     @transaction = Transaction.new("deposit", 1000, "12/01/2010", 1000)
   end
 
-  it 'stores transaction type' do
+  it 'stores transaction deposit amount' do
     expect(@transaction.type).to eq("deposit") 
   end
 

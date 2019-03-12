@@ -4,8 +4,10 @@ class Statement
 
   attr_reader :transactions
 
-  def initialize()
+  def initialize
     @transactions = []
+    @statement = "date || credit || debit || balance"
+
   end
 
   def store_transaction(transaction)
@@ -13,26 +15,25 @@ class Statement
   end
 
   def print_statement
-    statement = "date || credit || debit || balance"
     @transactions.reverse_each do |transaction| 
-      statement += "\n" + formatted_date(transaction.date)
-      if transaction.type == :deposit
-        statement += " || " + '%.2f' % transaction.amount + " ||"
-      else
-        statement += " || || " + '%.2f' % transaction.amount
-      end
-      statement += " || " + '%.2f' % transaction.balance
+      @statement += "\n" + formatted_date(transaction.date)
+      add_transaction_amount(transaction)
+      @statement += " || " + '%.2f' % transaction.balance
     end
-    statement
+    @statement
   end
 
   private
 
-  def formatted_date(date)
-    if date.is_a? String
-      Date.parse(date).strftime("%d/%m/%Y")
-    else 
-      date.strftime("%d/%m/%Y")
+  def add_transaction_amount(transaction)
+    if transaction.type == :deposit
+      @statement += " || " + '%.2f' % transaction.amount + " ||"
+    else
+      @statement += " || || " + '%.2f' % transaction.amount
     end
+  end
+
+  def formatted_date(date)
+    (date.is_a? String) ? Date.parse(date).strftime("%d/%m/%Y") : date.strftime("%d/%m/%Y")
   end
 end
