@@ -2,8 +2,8 @@ require 'statement'
 
 RSpec.describe Statement do
   before(:each) do
-    @transaction1 = instance_double("transaction1", :type => :deposit, :amount => 1000.00, :date => "12/01/2010", :balance => 1000)
-    @transaction2 = instance_double("transaction2", :type => :withdrawal, :amount => 300.00, :date => "13/01/2010", :balance => 700)
+    @transaction1 = instance_double("transaction1", :deposit => 1000, :withdrawal => "", :date => "12/01/2010", :balance => 1000)
+    @transaction2 = instance_double("transaction2", :deposit => "", :withdrawal => 300, :date => "13/01/2010", :balance => 700)
     @statement = Statement.new
   end
 

@@ -6,7 +6,6 @@ class Statement
 
   def initialize
     @transactions = []
-    @statement = "date || credit || debit || balance"
 
   end
 
@@ -15,23 +14,28 @@ class Statement
   end
 
   def print_statement
+    @statement = "date || credit || debit || balance"
     @transactions.reverse_each do |transaction| 
-      @statement += "\n" + formatted_date(transaction.date)
+      add_date(transaction)
       add_transaction_amount(transaction)
-      @statement += " || " + '%.2f' % transaction.balance
+      @statement += "|| " + '%.2f' % transaction.balance
     end
     @statement
   end
 
   private
 
-  def add_transaction_amount(transaction)
-    if transaction.type == :deposit
-      @statement += " || " + '%.2f' % transaction.amount + " ||"
-    else
-      @statement += " || || " + '%.2f' % transaction.amount
-    end
+  def add_date(transaction)
+    @statement += "\n" + formatted_date(transaction.date)
   end
+
+  def add_transaction_amount(transaction)
+      @statement += " || " + format_amount(transaction.deposit) + "|| " + format_amount(transaction.withdrawal)
+  end
+
+  def format_amount(amount)
+    (amount.is_a? Numeric) ? '%.2f' % amount + " " : amount
+  end 
 
   def formatted_date(date)
     (date.is_a? String) ? Date.parse(date).strftime("%d/%m/%Y") : date.strftime("%d/%m/%Y")
