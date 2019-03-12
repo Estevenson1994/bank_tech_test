@@ -8,13 +8,13 @@ class Account
 
   def deposit(amount, transaction = Transaction, date = Date.today)
     @balance += amount
-    @statement.store_transaction(transaction.new(:deposit, amount, date, @balance))
+    @statement.store_transaction(transaction.new(amount, "", date, @balance))
 
   end
 
   def withdraw(amount, transaction = Transaction, date = Date.today)
     @balance -= amount
-    @statement.store_transaction(transaction.new(:withdrawal, amount, date, @balance))
+    @statement.store_transaction(transaction.new("", amount, date, @balance))
   end
 
 end
