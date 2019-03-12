@@ -98,11 +98,12 @@ In my program I have three classes:
 - This class is simply there to make a transaction object. This stores the value of the transaction, the overal balance after that transaction is made and the date on which the transaction was made.
 2. Account:
 - This class is responsible for storing the overall balance and has methods withdraw/deposit which changes the balance, and creates a transaction to be stored on the statement. 
-3. Statement - This class is responsible for storing the transactions and printing a statement.
+3. Statement:
+- This class is responsible for storing the transactions and printing a statement.
 
 # Assumptions
 
-During this implementations, I have assumed that transactions will be stored in chronological order and when a transaction is made, the current date is take. 
+During this implementations, I have assumed that transactions will be stored in chronological order and when a transaction is made, the current date is taken. 
 
-Therefore the transactions are listed in reverse order rather than based upon the actual date.
+Therefore, the transactions are listed in reverse order rather than based upon the actual date.
 
