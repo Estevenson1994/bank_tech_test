@@ -6,13 +6,13 @@ class Account
     @balance = 0
   end
 
-  def deposit(amount, transaction = Transaction, date = Date.today)
+  def deposit(amount, date = Date.today, transaction = Transaction)
     @balance += amount
     @statement.store_transaction(transaction.new(amount, "", date, @balance))
 
   end
 
-  def withdraw(amount, transaction = Transaction, date = Date.today)
+  def withdraw(amount, date = Date.today, transaction = Transaction)
     @balance -= amount
     @statement.store_transaction(transaction.new("", amount, date, @balance))
   end
