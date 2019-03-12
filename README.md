@@ -84,9 +84,9 @@ My approach for this tech test was first plan out which classes/methods I might 
 
 I then used single unit tests to beginning implementing features. 
 
-My arrangement of the program did change a few times through the program as I worked through the solution, I began to see better ways to do things which I didn't foresee before.
+My arrangement of the program did change a few times I worked through the solution. During the implementation, I began to see better ways to do things which I didn't foresee before.
 
-Finally I had to change the feature tests to fit my new implementation. 
+Finally, I had to change the feature tests to fit my new implementation. 
 
 I have 100% coverage for this implementation.
 
