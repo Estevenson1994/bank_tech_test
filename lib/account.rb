@@ -13,12 +13,15 @@ class Account
   end
 
   def withdraw(amount, date = Date.today, transaction = Transaction)
-    if @balance - amount < 0
-      raise 'Insufficent funds'
-    else
+    raise 'Insufficent funds' if balance_too_low(amount)
     @balance -= amount
     @statement.store_transaction(transaction.new("", amount, date, @balance))
-    end
+  end
+
+  private
+
+  def balance_too_low(amount)
+    @balance - amount < 0
   end
 
 end
