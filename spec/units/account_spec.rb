@@ -4,12 +4,8 @@ RSpec.describe Account do
   before(:each) do
     statement = instance_double('statement', :transactions => [])
     allow(statement).to receive(:store_transaction)
-
     @account = Account.new(statement)
-  end
-
-  it 'balance is initially 0' do
-    expect(@account.balance).to eq(0)
+    @account.deposit(1000)
   end
 
   it 'user can make a deposit' do
@@ -18,6 +14,10 @@ RSpec.describe Account do
 
   it 'user can make a withdrawal' do
     expect { @account.withdraw(500) }.to change { @account.balance }.by(-500)
+  end
+
+  it 'raises an error if insufficient funds' do
+    expect { @account.withdraw(1200) }.to raise_error 'Insufficent funds'
   end
 
 end
